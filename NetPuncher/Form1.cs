@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
+using System.Net;
 
 namespace NetPuncher
 {
@@ -21,6 +22,9 @@ namespace NetPuncher
         private void button1_Click(object sender, EventArgs e)
         {
             button1.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            listView1.Items.Clear();
             ip ipEnum = new ip();
             int num1 = ipEnum.IPToNumber(textBox1.Text);
             int num2 = ipEnum.IPToNumber(textBox2.Text);
@@ -42,7 +46,6 @@ namespace NetPuncher
 
             }
             lst.Start();
-            button1.Enabled = true;
 
         }
 
@@ -52,7 +55,24 @@ namespace NetPuncher
             ListViewItem lvi = new ListViewItem();
             lvi.Text = strIP;
             string retPing = ipEnum.ping(strIP);
-            lvi.SubItems.Add("");
+            if (retPing != "超时")
+            {
+                try
+                {
+                    IPHostEntry myscanhost = Dns.GetHostEntry(strIP);
+                    string strHost = myscanhost.HostName.ToString();
+                    lvi.SubItems.Add(strHost);
+                }
+                catch
+                {
+                    lvi.SubItems.Add("");
+                }
+            }
+            else
+            {
+                lvi.SubItems.Add("");
+            }
+           
             lvi.SubItems.Add(retPing);
             SetListItem(lvi);
         }
@@ -73,8 +93,34 @@ namespace NetPuncher
         private void AddListItem(ListViewItem str)
         {
             this.listView1.Items.Add(str);
+            ip ipEnum = new ip();
+            int barMax = Math.Abs(ipEnum.IPToNumber(textBox2.Text) - ipEnum.IPToNumber(textBox1.Text));
+            if (progressBar1.Value == barMax)
+            {
+                button1.Enabled = true;
+                TaskbarProgress.SetState(this.Handle, TaskbarProgress.TaskbarStates.NoProgress);
+                button2.Enabled = true;
+                button3.Enabled = true;
+            }
+            else
+            {
+                TaskbarProgress.SetValue(this.Handle, listView1.Items.Count, barMax);
+            }
             progressBar1.Value = listView1.Items.Count;
+            
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            button3.Enabled = false;
+            foreach( ListViewItem Item in this.listView1.Items)
+            {
+                if (Item.SubItems[2].Text == "超时")
+                {
+                    Item.Remove();
+                }
+            }
+            button3.Enabled = true;
+        }
     }
 }
