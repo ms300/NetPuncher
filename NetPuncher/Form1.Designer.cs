@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -56,9 +57,28 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.浏览器打开OToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.加入SambaSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.加入SQLQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.加入HTTPHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.加入SSHHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.全面分析AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.漏洞攻击EToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除项目DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.tabPage8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -69,6 +89,8 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.tabPage8);
+            this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(5, 42);
             this.tabControl1.Name = "tabControl1";
@@ -114,14 +136,17 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
+            this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(24, 43);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(740, 315);
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // columnHeader1
             // 
@@ -198,6 +223,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "服务检测";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -229,6 +255,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -302,6 +329,135 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "NetPuncher";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.浏览器打开OToolStripMenuItem,
+            this.加入SambaSToolStripMenuItem,
+            this.加入SQLQToolStripMenuItem,
+            this.加入HTTPHToolStripMenuItem,
+            this.加入SSHHToolStripMenuItem,
+            this.全面分析AToolStripMenuItem,
+            this.漏洞攻击EToolStripMenuItem,
+            this.删除项目DToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 180);
+            // 
+            // 浏览器打开OToolStripMenuItem
+            // 
+            this.浏览器打开OToolStripMenuItem.Name = "浏览器打开OToolStripMenuItem";
+            this.浏览器打开OToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.浏览器打开OToolStripMenuItem.Text = "浏览器打开(&O)";
+            // 
+            // 加入SambaSToolStripMenuItem
+            // 
+            this.加入SambaSToolStripMenuItem.Name = "加入SambaSToolStripMenuItem";
+            this.加入SambaSToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.加入SambaSToolStripMenuItem.Text = "加入Samba(&S)";
+            // 
+            // 加入SQLQToolStripMenuItem
+            // 
+            this.加入SQLQToolStripMenuItem.Name = "加入SQLQToolStripMenuItem";
+            this.加入SQLQToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.加入SQLQToolStripMenuItem.Text = "加入SQL(&Q)";
+            // 
+            // 加入HTTPHToolStripMenuItem
+            // 
+            this.加入HTTPHToolStripMenuItem.Name = "加入HTTPHToolStripMenuItem";
+            this.加入HTTPHToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.加入HTTPHToolStripMenuItem.Text = "加入HTTP(&P)";
+            // 
+            // 加入SSHHToolStripMenuItem
+            // 
+            this.加入SSHHToolStripMenuItem.Name = "加入SSHHToolStripMenuItem";
+            this.加入SSHHToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.加入SSHHToolStripMenuItem.Text = "加入SSH(&H)";
+            this.加入SSHHToolStripMenuItem.Click += new System.EventHandler(this.加入SSHHToolStripMenuItem_Click);
+            // 
+            // 全面分析AToolStripMenuItem
+            // 
+            this.全面分析AToolStripMenuItem.Name = "全面分析AToolStripMenuItem";
+            this.全面分析AToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.全面分析AToolStripMenuItem.Text = "全面分析(&A)";
+            // 
+            // 漏洞攻击EToolStripMenuItem
+            // 
+            this.漏洞攻击EToolStripMenuItem.Name = "漏洞攻击EToolStripMenuItem";
+            this.漏洞攻击EToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.漏洞攻击EToolStripMenuItem.Text = "漏洞攻击(&E)";
+            // 
+            // 删除项目DToolStripMenuItem
+            // 
+            this.删除项目DToolStripMenuItem.Name = "删除项目DToolStripMenuItem";
+            this.删除项目DToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.删除项目DToolStripMenuItem.Text = "删除项目(&D)";
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.button5);
+            this.tabPage8.Controls.Add(this.label5);
+            this.tabPage8.Controls.Add(this.textBox4);
+            this.tabPage8.Controls.Add(this.textBox3);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(778, 399);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "全面分析";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(17, 17);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(113, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "导入主机";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(228, 18);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(366, 21);
+            this.textBox3.TabIndex = 7;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("思源黑体 Regular", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox4.Location = new System.Drawing.Point(27, 57);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(733, 323);
+            this.textBox4.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(155, 12);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "请输入IP地址或者网站域名:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(651, 16);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(109, 23);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "开始分析";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(778, 399);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "字典设置";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -316,8 +472,12 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,6 +513,22 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 浏览器打开OToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 加入SambaSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 加入SQLQToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 加入HTTPHToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 加入SSHHToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 全面分析AToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 漏洞攻击EToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 删除项目DToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TabPage tabPage9;
     }
 }
 

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Threading;
 
-public class PingList
+public class TaskList
 {
     public List<Action> Tasks = new List<Action>();
-
+    public int MaxThread = 128;
     public void Start()
     {
-        for (var i = 0; i < 32; i++)
+        for (var i = 0; i < MaxThread; i++)
             StartAsync();
     }
 
